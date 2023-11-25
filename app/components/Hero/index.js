@@ -1,5 +1,9 @@
 import Image from "next/image";
-import Nav from "./Navigation/Nav";
+import Nav from "../Navigation/Nav";
+import leaves from "@assets/leaves.png";
+import tomatoes from "@assets/tomatoes.png";
+import pizzaHero from "@assets/pizza-hero.png";
+import ActionButtons from "./ActionButtons";
 
 export default function Hero() {
   return (
@@ -29,42 +33,31 @@ export default function Hero() {
                 <span className="text-red-500">pagmamahal ♥️</span>
               </h1>
               <p className="mt-6 hidden text-lg italic leading-8 text-black lg:block">
-                One of the BEST PIZZA in Marikina since 2010. <br />
+                One of the <span className="text-red-600">BEST PIZZA</span> in
+                Marikina since 2010. <br />
                 With all over 12 branches nationwide!
               </p>
-              <Buttons className="hidden lg:flex" />
+              <ActionButtons className="hidden lg:flex" />
             </div>
 
-            <Image
-              src={"/pizza-hero.png"}
-              width={2000}
-              height={2000}
-              loading="lazy"
-              className="max-w-md object-contain"
-            />
-            <Buttons className="flex lg:hidden" />
+            <Image src={pizzaHero} className="max-w-md object-contain" />
+            <ActionButtons className="flex lg:hidden" />
           </div>
         </div>
 
         <div className="circle absolute right-0 top-[50%] z-0 hidden h-[40rem] w-[40rem] translate-x-[50%] translate-y-[-45%] rounded-full bg-yellow-400 lg:block"></div>
 
         <Image
-          src={"/leaves.png"}
-          width={150}
-          height={150}
-          className="absolute left-0 top-0 z-30 translate-x-[-30%] translate-y-[30%] lg:translate-y-[50%]"
+          src={leaves}
+          className="absolute left-0 top-0 z-30 w-36 translate-x-[-30%] translate-y-[30%] lg:translate-y-[50%]"
         />
         <Image
-          src={"/tomatoes.png"}
-          width={100}
-          height={100}
-          className="absolute right-0 top-0 translate-x-[30%] translate-y-[50%]"
+          src={tomatoes}
+          className="absolute right-0 top-0 w-28 translate-x-[30%] translate-y-[50%]"
         />
         <Image
-          src={"/tomatoes.png"}
-          width={200}
-          height={200}
-          className="absolute bottom-0 right-0 translate-x-[30%] translate-y-[30%]"
+          src={tomatoes}
+          className="absolute bottom-0 right-0 w-52 translate-x-[30%] translate-y-[30%]"
         />
 
         {/* <div
@@ -80,22 +73,6 @@ export default function Hero() {
           />
         </div> */}
       </div>
-    </div>
-  );
-}
-
-function Buttons({ className = "" }) {
-  return (
-    <div className={`mt-10 flex items-center gap-x-6 ${className}`}>
-      <a
-        href="#"
-        className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >
-        See the menu
-      </a>
-      <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-        Login to save orders <span aria-hidden="true">→</span>
-      </a>
     </div>
   );
 }

@@ -3,7 +3,8 @@
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import CartIcon from "./CartIcon";
+import UserAuth from "./UserAuth";
+import icon from "@assets/icon.png";
 
 export default function MobileMenu({
   navigation = [],
@@ -22,7 +23,7 @@ export default function MobileMenu({
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 flex items-center gap-2 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image src={"/icon.png"} width={35} height={35} />
+            <Image src={icon} width={35} height={35} />
             <span className="text-xl font-bold text-gray-900">
               Maczela's <span className="text-red-600">Pizza</span>
             </span>
@@ -49,7 +50,7 @@ export default function MobileMenu({
                 </a>
               ))}
             </div>
-            <CartIcon className="mt-5 !block w-fit" />
+            <UserAuth className="mt-5 !flex w-fit flex-col items-start gap-y-10" />
           </div>
         </div>
       </Dialog.Panel>

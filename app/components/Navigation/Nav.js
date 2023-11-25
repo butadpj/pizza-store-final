@@ -4,14 +4,15 @@ import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
-import CartIcon from "./CartIcon";
+import UserAuth from "./UserAuth";
+import icon from "@assets/icon.png";
 
 const navigation = [
   { name: "Socials", href: "#" },
   { name: "Contact Us", href: "#" },
 ];
 
-function Nav() {
+export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -23,7 +24,7 @@ function Nav() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 flex items-center gap-2 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image src={"/icon.png"} width={35} height={35} />
+            <Image src={icon} width={35} height={35} />
             <span className="text-xl font-bold text-gray-900">
               Maczela's <span className="text-red-600">Pizza</span>
             </span>
@@ -50,7 +51,8 @@ function Nav() {
             </a>
           ))}
         </div>
-        <CartIcon />
+
+        <UserAuth />
       </nav>
       <MobileMenu
         navigation={navigation}
@@ -60,5 +62,3 @@ function Nav() {
     </>
   );
 }
-
-export default Nav;
