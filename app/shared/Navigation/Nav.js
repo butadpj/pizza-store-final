@@ -1,11 +1,8 @@
-"use client";
-
-import { useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
-import UserAuth from "./UserAuth";
+import UserAuth from "../UserAuth";
 import icon from "@assets/icon.png";
+import Bars from "./Bars";
 
 const navigation = [
   { name: "Socials", href: "#" },
@@ -13,8 +10,6 @@ const navigation = [
 ];
 
 export default function Nav() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <>
       <nav
@@ -24,23 +19,14 @@ export default function Nav() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 flex items-center gap-2 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Image src={icon} width={35} height={35} />
+            <Image src={icon} width={35} height={35} alt="brand icon" />
             <span className="text-xl font-bold text-gray-900">
               Maczela's <span className="text-red-600">Pizza</span>
             </span>
           </a>
         </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <Bars />
+        <div className="hidden md:flex md:gap-x-12">
           {navigation.map((item) => (
             <a
               key={item.name}
@@ -52,13 +38,9 @@ export default function Nav() {
           ))}
         </div>
 
-        <UserAuth />
+        <UserAuth key={"nav"} />
       </nav>
-      <MobileMenu
-        navigation={navigation}
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-      />
+      <MobileMenu navigation={navigation} />
     </>
   );
 }

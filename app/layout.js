@@ -1,5 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import "react-loading-skeleton/dist/skeleton.css";
+import Providers from "@providers/Providers";
 
 export const metadata = {
   title: "Maczela's Pizza",
@@ -13,7 +15,9 @@ export default function RootLayout({ children }) {
         <head>
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </head>
-        <body>{children}</body>
+        <body>
+          <Providers>{children}</Providers>
+        </body>
       </html>
     </ClerkProvider>
   );

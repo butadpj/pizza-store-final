@@ -1,17 +1,12 @@
 import Image from "next/image";
-import Nav from "../Navigation/Nav";
 import leaves from "@assets/leaves.png";
-import tomatoes from "@assets/tomatoes.png";
+import tomatos from "@assets/tomatos.png";
 import pizzaHero from "@assets/pizza-hero.png";
 import ActionButtons from "./ActionButtons";
 
 export default function Hero() {
   return (
     <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50">
-        <Nav />
-      </header>
-
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -40,7 +35,11 @@ export default function Hero() {
               <ActionButtons className="hidden lg:flex" />
             </div>
 
-            <Image src={pizzaHero} className="max-w-md object-contain" />
+            <Image
+              src={pizzaHero}
+              alt="hero image of a pizza"
+              className="max-w-md object-contain"
+            />
             <ActionButtons className="flex lg:hidden" />
           </div>
         </div>
@@ -49,14 +48,17 @@ export default function Hero() {
 
         <Image
           src={leaves}
+          alt="hero image of a leaves"
           className="absolute left-0 top-0 z-30 w-36 translate-x-[-30%] translate-y-[30%] lg:translate-y-[50%]"
         />
         <Image
-          src={tomatoes}
+          src={tomatos}
+          alt="hero image of a tomato"
           className="absolute right-0 top-0 w-28 translate-x-[30%] translate-y-[50%]"
         />
         <Image
-          src={tomatoes}
+          src={tomatos}
+          alt="hero image of a tomato"
           className="absolute bottom-0 right-0 w-52 translate-x-[30%] translate-y-[30%]"
         />
 
